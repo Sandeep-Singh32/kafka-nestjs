@@ -7,7 +7,7 @@ export class AppController {
 
   @Post('send-payment')
   async sendPayment(@Body() body: any) {
-    await this.kafkaService.sendMessage('payment-topic', body);
+    await this.kafkaService.sendMessage('payment-consumer', body);
     return { status: 'Payment event sent to Kafka' };
   }
 }
